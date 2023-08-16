@@ -44,6 +44,7 @@ namespace Harmony
         }
         public T CachedValue { get; private set; }
         public readonly string Name;
+        public static bool UseDefaultValue = true;
         public HarmonyAsset(string name, AssetRequestMode mode = AssetRequestMode.DoNotLoad)
         {
             Name = name;
@@ -91,7 +92,7 @@ namespace Harmony
         }
         public void WhenSure(Action<T> action)
         {
-            T value = SaveCache && CachedValue is not null ? CachedValue : SureLoad(this)?.Value ?? null;
+            T value = SaveCache && CachedValue is not null ? CachedValue : (SureLoad(this)?.Value ?? (UseDefaultValue ? Asset<T>.DefaultValue : null));
             if (value is not null)
             {
                 action(value);
