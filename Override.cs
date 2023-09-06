@@ -23,6 +23,7 @@ namespace Harmony
                 _overrideValue = value;
             }
         }
+        public bool IsOrig => _overrideValue is null || _overrideValue.Equals(_value);
         public IReadOnlyList<T> OverrideHistory => _history;
         public void Reset()
         {

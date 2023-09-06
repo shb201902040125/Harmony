@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Security.Cryptography;
+using Harmony.Basics;
 using Terraria.ModLoader;
 
 namespace Harmony
