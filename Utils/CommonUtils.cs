@@ -5,10 +5,10 @@ using Terraria.ModLoader;
 
 namespace Harmony
 {
-    public static class Utils
+    public static class CommonUtils
     {
         private static MD5 md5 = MD5.Create();
-        static Utils()
+        static CommonUtils()
         {
             Harmony.OnUnload += delegate
             {

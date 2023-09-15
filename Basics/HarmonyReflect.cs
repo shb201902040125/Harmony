@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Harmony.Utils;
 
 namespace Harmony
 {
@@ -38,7 +39,7 @@ namespace Harmony
             {
                 return list.FirstOrDefault(m =>
                 {
-                    return Utils.CompareArray(m.GetParameters().Convert(p => p.ParameterType), paramtersTypes, (p1, p2) => p2.IsClassOrSubClass(p1));
+                    return CommonUtils.CompareArray(m.GetParameters().Convert(p => p.ParameterType), paramtersTypes, (p1, p2) => p2.IsClassOrSubClass(p1));
                 }, null);
             }
             return null;

@@ -1,4 +1,5 @@
-﻿using MonoMod.Cil;
+﻿using Harmony.Utils;
+using MonoMod.Cil;
 using MonoMod.RuntimeDetour.HookGen;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace Harmony
         {
             var tps = target.GetParameters();
             var mps = method.GetParameters();
-            if(Utils.CompareArray(tps, mps, (p1, p2) =>
+            if(CommonUtils.CompareArray(tps, mps, (p1, p2) =>
             {
                 return p1.ParameterType == p2.ParameterType;
             }))
